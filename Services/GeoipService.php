@@ -11,7 +11,7 @@ use MaxMind\Db\Reader;
  * @author Damien Demessence <damiend@ex-situ.com>
  * @copyright   Copyright 2015 ExSitu Marketing.
  */
-class GeoIPService
+class GeoipService
 {
     /**
      * The database with IP/Countries
@@ -32,14 +32,14 @@ class GeoIPService
     public function getGeoipCountryCode($ipAddress=''){ 
         try{
             if (function_exists('geoip_country_code_by_name')) {
-                $country = geoip_country_code_by_name($ipAddress);
+                $iso_code = geoip_country_code_by_name($ipAddress);
             } else {
-                $country = $this->getCountryByReader($ipAddress)['country']['iso_code'];
+                $iso_code = $this->getCountryByReader($ipAddress)['country']['iso_code'];
             }
         } catch (Exception $ex) {
             throw $ex;
         }
-        return $country;
+        return $iso_code;
     }
     /**
      * Gets the country GeoIP2
