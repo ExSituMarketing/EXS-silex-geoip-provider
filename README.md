@@ -27,7 +27,12 @@ Update the app.php to include our provider:
 ``` php
 //app.php
 //...
-$app->register(new \EXS\GeoipProvider\Providers\GeoipProvider());
+$app->register(new \EXS\GeoipProvider\Providers\GeoipProvider(),array('maxmind.database.file'=>'/path/to/your/file/GeoIPCity.dat'));
+
+$service = $app['exs.serv.geoip'];
+$country_code = $service->getGeoipCountryCode('8.8.8.8');
+//or
+$country = $service->getCountryByReader('8.8.8.8);
 ```
 and now you're done.
 
