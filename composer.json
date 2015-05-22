@@ -12,7 +12,8 @@
     "authors": [
         {
             "name": "Damien Demessence",
-            "email": "damiend@ex-situ.com"
+            "email": "damiend@ex-situ.com",
+            "homepage": "http://www.ex-situ.com/"
         }
     ],
     "require": {
@@ -24,7 +25,6 @@
             "EXS\\GeoipProvider": ""
         }
     },
-    "minimum-stability": "dev",
     "target-dir": "EXS/GeoipProvider",
     "extra": {
         "branch-alias": {

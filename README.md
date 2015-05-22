@@ -10,8 +10,11 @@ Once the new project is set up, open the composer.json file and add the exs/sile
 //...
 "require": {
         //other bundles
-        //other bundles"exs/silex-geoip-provider": "1.0.*@dev"
+        "exs/silex-geoip-provider": "v1.0"
 ```
+or run this command:
+``` shell 
+    composer require exs/silex-geoip-provider v1.0
 
 Save the file and have composer update the project via the command line:
 ``` shell
