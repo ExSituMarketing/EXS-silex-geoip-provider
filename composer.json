@@ -1,4 +1,4 @@
-    {
+{
     "name": "exs/silex-geoip-provider",
     "description": "Geoip bundle for Silex2",
     "keywords": [
@@ -25,5 +25,10 @@
         }
     },
     "minimum-stability": "dev",
-    "target-dir": "EXS/GeoipProvider"    
+    "target-dir": "EXS/GeoipProvider",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
 }
