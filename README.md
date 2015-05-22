@@ -12,14 +12,17 @@ Once the new project is set up, open the composer.json file and add the exs/sile
         //other bundles
         "exs/silex-geoip-provider": "v1.0"
 ```
-or run this command:
-``` shell 
-    composer require exs/silex-geoip-provider v1.0
 
 Save the file and have composer update the project via the command line:
 ``` shell
 php composer.phar update
 ```
+
+or run this command:
+``` shell 
+    composer require exs/silex-geoip-provider v1.0
+```
+
 Composer will now update all dependencies and you should see our bundle in the list:
 ``` shell
   - Installing exs/silex-geoip-provider (dev-master 463eb20)
