@@ -1,0 +1,28 @@
+    {
+    "name": "exs/silex-geoip-provider",
+    "description": "Geoip bundle for Silex2",
+    "keywords": [
+        "silex",
+        "geoip",
+        "maxmind",
+        "provider"
+    ],
+    "homepage": "https://github.com/ExSituMarketing/EXS-silex-geoip-provider",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Damien Demessence",
+            "email": "damiend@ex-situ.com"
+        }
+    ],
+    "require": {
+        "silex/silex": "~2.0@dev"
+    },
+    "autoload": {
+        "psr-0": {
+            "EXS\\GeoipProvider": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "target-dir": "EXS/GeoipProvider"    
+}
