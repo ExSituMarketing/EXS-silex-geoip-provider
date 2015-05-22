@@ -17,7 +17,7 @@ class GeoipProvider implements ServiceProviderInterface
     public function register(Container $container)
     {
         $container['exs.serv.geoip'] = ( function ($container) {
-            return new \EXS\GeoipProvider\Services\GeoIPService($container['maxmind.database.file']);
+            return new \EXS\GeoipProvider\Services\GeoipService($container['maxmind.database.file']);
         });
     }
 }
