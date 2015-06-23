@@ -14,12 +14,25 @@ use MaxMind\Db\Reader;
 class GeoipService
 {
     /**
+     * Path to GeoIp Database file
+     * @var string
+     */
+    protected $databaseFile;
+    
+    /**
+     * Country fallback in case Ip is unknown
+     * @var string
+     */
+    protected $countryFallback;
+    
+    /**
      * The database with IP/Countries
      * @param string $databaseFile
      */
-    public function __construct($databaseFile='')
+    public function __construct($databaseFile='',$countryFallback='us')
     {
         $this->databaseFile = $databaseFile;
+        $this->countryFallback = $countryFallback;
     }
     
     /**
@@ -30,6 +43,21 @@ class GeoipService
      * @return string the country Iso3166Alpha2 code
      */
     public function getGeoipCountryCode($ipAddress=''){ 
+        $iso_code = $this->readIpAddress($ipAddress);
+        if($iso_code){
+            return $iso_code;
+        } else {
+            return $this->countryFallback;
+        }
+    }
+    /**
+     * Get the country code from the IP.
+     *
+     * @param string $ipAddress
+     *            the IP address to look up.
+     * @return string the country Iso3166Alpha2 code or null
+     */
+    public function readIpAddress($ipAddress=''){
         try{
             if (function_exists('geoip_country_code_by_name')) {
                 $iso_code = geoip_country_code_by_name($ipAddress);
