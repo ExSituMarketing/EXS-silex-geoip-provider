@@ -58,11 +58,15 @@ class GeoipService
      * @return string the country Iso3166Alpha2 code or null
      */
     public function readIpAddress($ipAddress=''){
+        $iso_code = null;
         try{
             if (function_exists('geoip_country_code_by_name')) {
                 $iso_code = geoip_country_code_by_name($ipAddress);
             } else {
-                $iso_code = $this->getCountryByReader($ipAddress)['country']['iso_code'];
+                $country = $this->getCountryByReader($ipAddress);
+                if(isset($country['country']['iso_code'])) {
+                    $iso_code = $country['country']['iso_code'];
+                }
             }
         } catch (Exception $ex) {
             throw $ex;
