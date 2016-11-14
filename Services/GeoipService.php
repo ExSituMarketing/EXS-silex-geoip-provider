@@ -20,19 +20,12 @@ class GeoipService
     protected $databaseFile;
     
     /**
-     * Country fallback in case Ip is unknown
-     * @var string
-     */
-    protected $countryFallback;
-    
-    /**
      * The database with IP/Countries
      * @param string $databaseFile
      */
-    public function __construct($databaseFile='',$countryFallback='us')
+    public function __construct($databaseFile='')
     {
         $this->databaseFile = $databaseFile;
-        $this->countryFallback = $countryFallback;
     }
     
     /**
@@ -47,7 +40,7 @@ class GeoipService
         if($iso_code){
             return $iso_code;
         } else {
-            return $this->countryFallback;
+            return null;
         }
     }
     /**
